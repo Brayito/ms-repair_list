@@ -18,6 +18,13 @@ public class RepairEntity {
 
     private String type;
     private Integer value;
+
+
+    // *********            Anadir          **************
+    // patente (?
+    // fecha reparacion
+    // hora reparacion
+
     private Integer vehicleRepairId;
 
     @Override
