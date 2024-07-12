@@ -25,7 +25,7 @@ public class RepairService {
         return repairListRepository.save(repairList);
     }
 
-    public List<RepairEntity> byVehicleRepairId(int vehicleRepairId){
-        return repairListRepository.findByVehicleRepairId(vehicleRepairId);
+    public List<RepairEntity> byVehicleId(int vehicleId){
+        return repairListRepository.findByVehicleId(vehicleId);
     }
 }

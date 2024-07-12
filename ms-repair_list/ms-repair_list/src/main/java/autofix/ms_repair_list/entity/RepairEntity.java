@@ -21,11 +21,10 @@ public class RepairEntity {
 
 
     // *********            Anadir          **************
-    // patente (?
     // fecha reparacion
     // hora reparacion
 
-    private Integer vehicleRepairId;
+    private Integer vehicleId;
 
     @Override
     public String toString() {
@@ -33,7 +32,7 @@ public class RepairEntity {
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", value='" + value + '\'' +
-                ", vehicleRepairId='" + vehicleRepairId + '\'' +
+                ", vehicleId='" + vehicleId + '\'' +
                 '}';
     }
 

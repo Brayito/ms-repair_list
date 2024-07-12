@@ -40,9 +40,11 @@ public class RepairController {
         return ResponseEntity.ok(newRepair);
     }
 
-    @GetMapping("byRepair/{vehicleRepairId}")
-    public ResponseEntity<List<RepairEntity>> getByVehicleRepairId(@PathVariable("vehicleRepairId")int vehicleRepairId){
-        List<RepairEntity> repairs = repairListService.byVehicleRepairId(vehicleRepairId);
+    @GetMapping("/byVehicle/{vehicleId}")
+    public ResponseEntity<List<RepairEntity>> getByVehicleId(@PathVariable("vehicleId")int vehicleId){
+        List<RepairEntity> repairs = repairListService.byVehicleId(vehicleId);
         return ResponseEntity.ok(repairs);
     }
+
+
 }

@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface RepairRepository extends JpaRepository<RepairEntity,Integer> {
 
-    List<RepairEntity> findByVehicleRepairId(int vehicleRepairId);
+    List<RepairEntity> findByVehicleId(int vehicleId);
+
+
 }
