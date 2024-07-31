@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/repairs")
 public class RepairController {
 
@@ -40,9 +41,15 @@ public class RepairController {
         return ResponseEntity.ok(newRepair);
     }
 
-    @GetMapping("/byVehicle/{vehicleId}")
-    public ResponseEntity<List<RepairEntity>> getByVehicleId(@PathVariable("vehicleId")int vehicleId){
-        List<RepairEntity> repairs = repairListService.byVehicleId(vehicleId);
+//    @GetMapping("/byVehicle/{vehicleId}")
+//    public ResponseEntity<List<RepairEntity>> getByVehicleId(@PathVariable("vehicleId")int vehicleId){
+//        List<RepairEntity> repairs = repairListService.byVehicleId(vehicleId);
+//        return ResponseEntity.ok(repairs);
+//    }
+
+    @GetMapping("/byVehicle/{patente}")
+    public ResponseEntity<List<RepairEntity>> getByPatente(@PathVariable("patente")String patente){
+        List<RepairEntity> repairs = repairListService.getVehicleByPatente(patente);
         return ResponseEntity.ok(repairs);
     }
 

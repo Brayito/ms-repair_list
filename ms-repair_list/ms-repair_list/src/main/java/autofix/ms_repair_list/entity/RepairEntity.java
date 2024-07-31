@@ -18,13 +18,10 @@ public class RepairEntity {
 
     private String type;
     private Integer value;
+    private String fecha;
+    private String hora;
+    private String patente;
 
-
-    // *********            Anadir          **************
-    // fecha reparacion
-    // hora reparacion
-
-    private Integer vehicleId;
 
     @Override
     public String toString() {
@@ -32,7 +29,7 @@ public class RepairEntity {
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", value='" + value + '\'' +
-                ", vehicleId='" + vehicleId + '\'' +
+                ", patente='" + patente + '\'' +
                 '}';
     }
 

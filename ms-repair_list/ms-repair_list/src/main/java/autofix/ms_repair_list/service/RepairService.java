@@ -25,7 +25,13 @@ public class RepairService {
         return repairListRepository.save(repairList);
     }
 
-    public List<RepairEntity> byVehicleId(int vehicleId){
-        return repairListRepository.findByVehicleId(vehicleId);
+//    public List<RepairEntity> byVehicleId(int vehicleId){
+//        return repairListRepository.findByVehicleId(vehicleId);
+//    }
+
+    public List<RepairEntity> getVehicleByPatente(String patente){
+        return repairListRepository.findByPatente(patente);
     }
+
+
 }
