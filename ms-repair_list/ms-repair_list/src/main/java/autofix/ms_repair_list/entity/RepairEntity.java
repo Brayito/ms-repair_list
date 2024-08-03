@@ -8,6 +8,9 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Time;
+import java.util.Date;
+
 @Setter
 @Getter
 @Entity
@@ -30,6 +33,8 @@ public class RepairEntity {
                 ", type='" + type + '\'' +
                 ", value='" + value + '\'' +
                 ", patente='" + patente + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", hora='" + hora + '\'' +
                 '}';
     }
 

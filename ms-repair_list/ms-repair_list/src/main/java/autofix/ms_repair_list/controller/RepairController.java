@@ -3,8 +3,10 @@ package autofix.ms_repair_list.controller;
 import autofix.ms_repair_list.entity.RepairEntity;
 import autofix.ms_repair_list.service.RepairService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.logging.Logger;
 
 import java.util.List;
 
@@ -12,6 +14,10 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/repairs")
 public class RepairController {
+
+    // Crear una instancia de Logger para esta clase
+    private static final Logger LOGGER = Logger.getLogger(RepairController.class.getName());
+
 
     @Autowired
     RepairService repairListService;
@@ -35,10 +41,14 @@ public class RepairController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<RepairEntity> save(@RequestBody RepairEntity repair){
-        RepairEntity newRepair = repairService.save(repair);
-        System.out.println("Recibido RepairEntity: " + repair.toString());
-        return ResponseEntity.ok(newRepair);
+    public ResponseEntity<RepairEntity> save(@RequestBody RepairEntity repair) {
+        try {
+            RepairEntity newRepair = repairService.save(repair);
+            return ResponseEntity.ok(newRepair);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
 //    @GetMapping("/byVehicle/{vehicleId}")
@@ -49,7 +59,7 @@ public class RepairController {
 
     @GetMapping("/byVehicle/{patente}")
     public ResponseEntity<List<RepairEntity>> getByPatente(@PathVariable("patente")String patente){
-        List<RepairEntity> repairs = repairListService.getVehicleByPatente(patente);
+        List<RepairEntity> repairs = repairListService.getRepairsByPatente(patente);
         return ResponseEntity.ok(repairs);
     }
 
